@@ -1,4 +1,4 @@
-# Wizard-Library
+# Wizard Library
 A simple and clean UI.
 Credit To Wizard
 ### Setup The Library
