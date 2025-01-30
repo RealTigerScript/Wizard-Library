@@ -3,37 +3,30 @@ A simple and clean UI.
 Credit To Wizard
 ### Setup The Library
 ```lua
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/library",true))()
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 ```
-### Or Use The New
+
+
+
+### Adding Window
 ```lua
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/liebertsx/Tora-Library/main/src/librarynew",true))()
+local Window = Library:NewWindow("Name")
 ```
+
 
 
 ### Adding Tab
 ```lua
-local tab = library:CreateWindow("Your Title")
-```
-
-
-
-### Adding Folder
-```lua
-local folder = tab:AddFolder("Folder")
+local Tab = Window:NewSection("My Tab")
 ```
 
 
 
 ### Adding Button
 ```lua
-folder:AddButton({
-	text = "Click me",
-	flag = "button",
-	callback = function()
-	print("hello world")
-end
-})
+Tab:CreateButton("Button", function()
+print("hello")
+end)
 ```
 
 
@@ -41,42 +34,19 @@ end
 
 ### Adding Toggle
 ```lua
-folder:AddToggle({
-	text = "Toggle",
-	flag = "toggle",
-	callback = function(v)
-	print(v)
-end
-})
+Tab:CreateToggle("Toggle", function(value)
+print(value)
+end)
 ```
-
-
-
-
-### Adding Label
-```lua
-folder:AddLabel({
-	text = "This Is Sick!",
-	type = "label"
-	})
-```
-
 
 
 
 
 ### Adding Slider
 ```lua
-folder:AddSlider({
-	text = "Fov",
-	min = 70,
-	max = 170,
-	dual = true,
-	type = "slider",
-	callback = function(v)
-	print(v)
-end
-})
+Tab:CreateSlider("Slider", 0, 100, 15, false, function(value)
+print(value)
+ end)
 ```
 
 
@@ -85,14 +55,9 @@ end
 
 ### Adding TextBox
 ```lua
-folder:AddColor({
-	text = "Color Picker",
-	flag = "color",
-	type = "color",
-	callback = function(v)
-	print(v)
-end
-})
+Tab:CreateTextbox("TextBox", function(text)
+  print(text)
+end)
 ```
 
 
@@ -101,43 +66,23 @@ end
 
 ### Adding Dropdown
 ```lua
-folder:AddList({
-    text = "Color",
-    values = {"Red", "Green", "Blue"},
-    callback = function(value)
-        print("Selected color:", value)
-    end,
-    open = false,
-    flag = "color_option"
-})
+Tab:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(text)
+print(text)
+end)
 ```
 
 
 
 
 
-### Adding Bind
+### Adding ColorPicker
 ```lua
-folder:AddBind({
-    text = "bind",
-    key = "X",
-    hold = false,
-    callback = function()
-    end
-})
-```
-
-### Close Lib
-```lua
-library:Close()
+Tab:CreateColorPicker("Picker", Color3.new(255, 255, 255), function(value)
+print(value)
+end)
 ```
 
 
 
-### Final (REQUIRED OR THE UI WILL NOT SHOW)
-```lua
-library:Init()
-```
 
-
-### Credits : Tora Is Me  https://youtube.com/@toraisme
+### Credits : Wizard  https://youtube.com/@toraisme
